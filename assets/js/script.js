@@ -88,7 +88,56 @@ function fetchWeather(cityName) {
         });
     });
 }
+document.addEventListener("DOMContentLoaded", function (){
+    retrieveAndCreateListItems();
+}); 
 
+searchBtn.addEventListener("click",function(event){event.preventDefault();});
+var city= searchInput.value;
+fetchWeather(city);
+
+saveCityToLocalStorage(city);
+function fetchWeather(cityName) {
+
+}
+saveCityToLocalStorage(city);
+function fetchWeather(cityName){
+
+}
+function saveCityToLocalStorage(city){
+    var cities = localStorage.getItem("cities")||"[]"; cities = JSON.parse(cities);
+    cities.push(city);
+    localStorage.setItem("cities",JSON.stringify(cities))
+}
+
+function retrieveAndCreateListItems(){
+    var cities = localStorage.getItem("cities");
+    cities = cities? JSON.parse(cities):[];
+}
+
+for (var i = 0; i < city.length; i++) {
+    var city = cities[i];
+    var li = document.createElement("li");
+    li.innerHTML = city;
+    li.addEventListener("click", function () {
+      // Call fetchWeather passing the value of li innerHTML
+      fetchWeather(this.innerHTML);
+    });
+    document.querySelector(".list-group").appendChild(li);
+  }
+  function updateCityList(city) {
+    // Create a new li element for the city and add event listener
+    var li = document.createElement("li");
+    li.innerHTML = city;
+    li.addEventListener("click", function () {
+      // Call fetchWeather passing the value of li innerHTML
+      fetchWeather(this.innerHTML);
+    });
+  
+    // Append the new li to the list of cities
+    document.querySelector(".list-group").appendChild(li);
+  }
+  
 
 
 // when we click the search button, we want the city variable to be saved to localStorage
