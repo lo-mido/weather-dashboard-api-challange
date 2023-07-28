@@ -8,14 +8,16 @@ var humidity = document.getElementById("humidity");
 var icon = document.getElementById("icon");
 var forecast = document.querySelectorAll(".forecast");
 var listGroup = document.querySelector(".list-group");
-
+// declared variables
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var city = searchInput.value;
   saveCityToLocalStorage(city);
   fetchWeather(city);
 });
-
+//  event listener to search weather based on city input from search button.
+// function to fetch the weather based on city input from search also for looping through
+// the date and to fetch the api for weather icons.
 function fetchWeather(cityName) {
   console.log(cityName);
   fetch(
@@ -92,6 +94,7 @@ function fetchWeather(cityName) {
         });
     });
 }
+// loads to the DOM
 document.addEventListener("DOMContentLoaded", function () {
   retrieveAndCreateListItems();
 });
@@ -106,7 +109,7 @@ function saveCityToLocalStorage(city) {
   cities.push(city);
   localStorage.setItem("cities", JSON.stringify(cities));
 }
-
+// attempting to get the local storage to refelct the target buttons--unsuccesfful may need to redo
 function retrieveAndCreateListItems() {
   var cities = localStorage.getItem("cities");
   cities = cities ? JSON.parse(cities) : [];
@@ -147,6 +150,7 @@ function updateCityList(city) {
   document.querySelector(li).appendChild(button);
 }
 retrieveAndCreateListItems()
+//  to do list to make changes some codes are commented out.
 // when we click the search 
 // // for (let index = 0; index < array.length; index++) {
 //     const element = array[index];
