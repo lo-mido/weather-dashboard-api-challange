@@ -109,7 +109,7 @@ function saveCityToLocalStorage(city) {
   cities.push(city);
   localStorage.setItem("cities", JSON.stringify(cities));
 }
-// attempting to get the local storage to refelct the target buttons--unsuccesfful may need to redo
+// attempting to get the local storage to reflect the target buttons--unsuccessful may need to redo
 function retrieveAndCreateListItems() {
   var cities = localStorage.getItem("cities");
   cities = cities ? JSON.parse(cities) : [];
@@ -119,25 +119,25 @@ function retrieveAndCreateListItems() {
     button.setAttribute("type", "button");
     button.setAttribute("class", "btn btn-secondary w-100 ");
     button.textContent = city;
-    button.addEventListener("click",function(){
-    fetchWeather(this.textContent)
-     updateCityList.appendChild(button);
-    })
-   
+    button.addEventListener("click", function () {
+      fetchWeather(this.textContent);
+      updateCityList.appendChild(button);
+    });
+
     var li = document.createElement("li");
     li.innerHTML = city;
     li.addEventListener("click", function () {
       // Call fetchWeather passing the value of li innerHTML
       fetchWeather(this.innerHTML);
     });
-// button to get the weather data to the dispaly into local storage. maybe i need to add a for loop in the function retireve and
-// create list items:
+    // button to get the weather data to the display into local storage. maybe i need to add a for loop in the function retrieve and
+    // create list items:
     document.querySelector(".list-group").appendChild(li);
   }
 }
 function updateCityList(city) {
-  var button=document.createElement("button");
-  button.innerHTML =city;
+  var button = document.createElement("button");
+  button.innerHTML = city;
   // Create a new li element for the city and add event listener
   var li = document.createElement("li");
   li.addEventListener("click", function () {
@@ -149,9 +149,9 @@ function updateCityList(city) {
   document.querySelector(".list-group").appendChild(li);
   document.querySelector(li).appendChild(button);
 }
-retrieveAndCreateListItems()
+retrieveAndCreateListItems();
 //  to do list to make changes some codes are commented out.
-// when we click the search 
+// when we click the search
 // // for (let index = 0; index < array.length; index++) {
 //     const element = array[index];
 //     button

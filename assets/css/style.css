@@ -1,8 +1,8 @@
 .forecast {
-     background-color: rgb(230, 229, 229);
-     border-radius: 6px;
-     margin: 0 10px;
+  background-color: rgb(230, 229, 229);
+  border-radius: 6px;
+  margin: 0 10px;
 }
-.col-12{
-    border:solid 1px
+.col-12 {
+  border: solid 1px;
 }
