@@ -1,12 +1,21 @@
-The assignment/task was to create a Work Day Scheduler, a simple calendar application allowing users to save events for each hour of a typical working day (9 am–5 pm). The application needed to run in the browser and feature dynamically updated HTML and CSS powered by jQuery. The starter code provided included the Day.js library for working with date and time.
+# Weather Dashboard
 
-The motivation behind building this project was to create a valuable tool for managing and organizing daily schedules. As an employee with a busy schedule, keeping track of important events and tasks throughout the day can be challenging. By developing a Work Day Scheduler, I aimed to provide a solution that allows users to add and manage their events effectively, ensuring they can make the most of their time.
+ ## Paragraph 1: What was the assignment or task?
+The assignment was to create a Weather Dashboard web application that allows users to search for the weather forecast of any city. The application should display the current weather conditions, including temperature, wind speed, and humidity, along with a 5-day forecast. Additionally, the project required implementing local storage to save and display a list of previously searched cities as buttons for easy access to their weather information.
 
-The Work Day Scheduler solves the problem of managing and organizing a busy schedule by providing a user-friendly interface to add and save events for each hour of the working day. It allows users to see the current day at the top of the calendar, provides color-coded time blocks to indicate past, present, and future events, and enables users to enter and save event details. The saved events persist even after refreshing the page, ensuring users can rely on the scheduler to organize their schedules.
+## Paragraph 2: What was your motivation?
+The motivation behind building this Weather Dashboard was to provide users with a convenient way to access weather information for any city. Weather is an essential aspect of daily life, and having a user-friendly application that allows users to quickly check the weather forecast for different cities can be very beneficial. The goal was to create a visually appealing and intuitive dashboard that anyone can use to stay informed about the weather conditions in their desired locations.
 
-During the development of this project, I learned several vital aspects. Firstly, I gained experience working with the Day.js library to manipulate and display dates and times. Additionally, I improved my understanding of using jQuery to dynamically update HTML and CSS elements based on user interactions and current times. Lastly, I honed my skills in utilizing local storage to store and retrieve data, enabling saved events to persist even after page refreshes. Building this project allowed me to practice and enhance my skills in JavaScript, jQuery, HTML, CSS, and working with third-party libraries and APIs.which would increase my chances of impressing potential employers.
+ ## Paragraph 3: What problem does it solve?
+The Weather Dashboard solves the problem of quickly obtaining weather forecasts for different cities in an easy-to-understand format. By providing a search bar, users can enter the name of any city they want to know about, and the application fetches and displays the weather information for that location. Moreover, the project also solves the problem of remembering and accessing previously searched cities by utilizing local storage to store the list of cities and display them as buttons on the page.
 
-Table of Contents
+## Paragraph 4: What did you learn? Why did you build this project?
+Through building this Weather Dashboard project, I learned several valuable skills and concepts. Firstly, I improved my proficiency in using HTML, CSS, and JavaScript to create a dynamic and interactive web application. Additionally, I gained experience with API integration, as I needed to fetch weather data from the OpenWeatherMap API. Implementing local storage also deepened my understanding of how to persist data in a web browser for future use.
+
+I built this project to enhance my web development skills, particularly in handling APIs and working with local storage. Moreover, I wanted to create a practical application that serves a real-world purpose by providing users with easy access to weather forecasts for any city. The project also allowed me to explore and implement event listeners, DOM manipulation, and dynamically generating elements to create a smooth and engaging user experience.
+
+Overall, the Weather Dashboard project was a valuable learning experience, and it allowed me to showcase my abilities in front-end web development while creating a useful application for users seeking weather information
+## Table of Contents
 Paragraph 1: What was the assignment or task? Paragraph 2: What was your motivation? Paragraph 3: What problem does it solve? Paragraph 4 What did you learn? Why did you build this project?
 
 Installation
@@ -18,7 +27,7 @@ gif workday
 Workday schedule
 
 Picture of the scheduler website! Link to Live Website
-Work Day Scheduler created with HTML, CSS and Javascript. Use this Link: Use This Link to View Live Preview ` Credits: Team Work Make the Dream Work! We worked together systematically on zoom totaling a total of 15+ Hours Phil Loy, Instructor Lourdes Dorvilus https://github.com/lo-mido & Tutor Support via ABC Learning Application.
+Work Day Scheduler created with HTML, CSS and Javascript. Use this Link: Use This Link to View Live Preview ` Credits: Team Work Make the Dream Work! We worked together systematically on zoom totaling a total of 15+ Hours Phil Loy, Instructor Lourdes Dorvilus https://github.com/lo-mido & Tutor Support & Boot Camp TA's via ABC Learning Application.
 
 Tutorial Links:
 https://courses.bootcampspot.com/courses/3883/assignments/57119?module_item_id=1004720 https://www.w3schools.com/css/css_selectors.asp https://www.w3schools.com/html/html_attributes.asp https://htmlcheatsheet.com/css/ https://apps.apple.com/us/app/mimo-learn-coding-programming/id1133960732?ppid=36dc2281-6a01-4f94-ad52-05a0a7062255 https://youtu.be/tRZGeaHPoaw
