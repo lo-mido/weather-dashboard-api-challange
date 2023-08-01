@@ -8,13 +8,17 @@ var humidity = document.getElementById("humidity");
 var icon = document.getElementById("icon");
 var forecast = document.querySelectorAll(".forecast");
 var listGroup = document.querySelector(".list-group");
+var cities = JSON.parse(localStorage.getItem("cities")) || [];
+
 // declared variables
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var city = searchInput.value;
   saveCityToLocalStorage(city);
   fetchWeather(city);
+  retrieveAndCreateListItems();
 });
+
 //  event listener to search weather based on city input from search button.
 // function to fetch the weather based on city input from search also for looping through
 // the date and to fetch the api for weather icons.
@@ -41,9 +45,6 @@ function fetchWeather(cityName) {
       temp.innerHTML = "Temperature: " + Math.round(data.main.temp) + "&#176F";
       wind.innerHTML = "Wind Speed: " + Math.round(data.wind.speed) + " MPH";
       humidity.innerHTML = "Humidity: " + Math.round(data.main.humidity) + "%";
-
-         
-
     })
     .then(function () {
       fetch(
@@ -97,95 +98,27 @@ function fetchWeather(cityName) {
         });
     });
 }
-// loads to the DOM
-document.addEventListener("DOMContentLoaded", function () {
-  retrieveAndCreateListItems();
-});
 
-searchBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-});
 // saves cities to local storage
 function saveCityToLocalStorage(city) {
-  // var cities = localStorage.getItem("cities") || "[]";
-  // cities = JSON.parse(cities);
-  // cities.push(city); Cut these out because we are saving to local storage in a different way.
-  localStorage.setItem(localStorage.length + 1, city);
+  cities.push(city);
+  localStorage.setItem("cities", JSON.stringify(cities));
 }
+
 // attempting to get the local storage to reflect the target buttons--unsuccessful may need to redo
 function retrieveAndCreateListItems() {
-  var cities = localStorage.getItem("cities");
-  cities = cities ? JSON.parse(cities) : [];
+  listGroup.innerHTML = "";
+  var cities = JSON.parse(localStorage.getItem("cities")) || [];
   for (var i = 0; i < cities.length; i++) {
-    var city = cities[i];
     var button = document.createElement("button");
     button.setAttribute("type", "button");
-    button.setAttribute("class", "btn btn-secondary w-100 ");
-    button.textContent = city;
+    button.setAttribute("class", "btn btn-secondary w-100 mb-1");
+    button.innerHTML = cities[i];
+    listGroup.append(button);
     button.addEventListener("click", function () {
-      fetchWeather(this.textContent);
-      updateCityList.appendChild(button);
-    });
-
-    var li = document.createElement("li");
-    li.innerHTML = city;
-    li.addEventListener("click", function () {
-      // Call fetchWeather passing the value of li innerHTML
       fetchWeather(this.innerHTML);
     });
-    // button to get the weather data to the display into local storage. maybe i need to add a for loop in the function retrieve and
-    // create list items:
-    document.querySelector(".list-group").appendChild(li);
   }
 }
-function updateCityList(city) {
-  var button = document.createElement("button");
-  button.innerHTML = city;
-  // Create a new li element for the city and add event listener
-  var li = document.createElement("li");
-  li.addEventListener("click", function () {
-    // Call fetchWeather passing the value of li innerHTML
-    fetchWeather(this.innerHTML);
-  });
 
-  // Append the new li to the list of cities
-  document.querySelector(".list-group").appendChild(li);
-  document.querySelector(li).appendChild(button);
-}
-//  creates a function and for loop to call each city and make the button appear as list items
-function retrieveAndCreateListItems() {
-  for (var i = 1; i < localStorage.length + 1; i++) {
-    var liItem = document.createElement("li");
-    liItem.setAttribute("class", "list-group-item");
-    var buttonItem = document.createElement("button");
-    buttonItem.innerHTML = localStorage.getItem(i);
-    buttonItem.setAttribute("class", "btn btn-secondary w-100");
-    buttonItem.setAttribute("id", localStorage.getItem(i)); 
-    buttonItem.setAttribute("onClick","fetchWeather(this.id)"); // the id of the button becomes the name of the id to set a function to retrieve the id of that button.
-    liItem.append(buttonItem);
-    listGroup.append(liItem);
-  }
-}
-//  pulled the id from the button to input into my fetchWeather API function so i did not need to create a whole new function to retrieve the item.
 retrieveAndCreateListItems();
-
-
-
-
-
-
-
-
-//  to do list to make changes some codes are commented out.
-// when we click the search
-// // for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-//     button
-// }, we want the city variable to be saved to localStorage
-// after local storage is created, you want to write a function that will retrieve local storage
-// loop through the retrieved data, create a li in the for loop
-// give the li a innerHTML of whatever the city name coming from localStorage is
-// append the li to the dom where it need to go
-// add an event listener to each li so that when the li is clicked, it re-calls fetchWeather() passing in the value of that li innerHTML
-// pseudo code in the comments above: to do list.
-//  not to get button to repeat for the same city twice
